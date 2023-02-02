@@ -1,6 +1,7 @@
 package main
 
 import (
+	"GoNews/pkg/cache"
 	"GoNews/pkg/config"
 	"GoNews/pkg/pb"
 	"GoNews/pkg/rss"
@@ -54,8 +55,11 @@ func main() {
 	sourceRss.RunGetSourcesInfo()
 	db.RunInsertPosts()
 
+	pc := cache.NewPaginationCache()
+
 	s := services.Server{
 		H: db,
+		P: pc,
 	}
 
 	lis, err := net.Listen("tcp", c.Port)
