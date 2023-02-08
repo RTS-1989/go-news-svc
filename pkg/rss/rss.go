@@ -1,9 +1,9 @@
 package rss
 
 import (
-	"GoNews/pkg/storage"
 	"encoding/json"
 	"encoding/xml"
+	"github.com/RTS-1989/go-news-svc/pkg/storage"
 	"io"
 	"log"
 	"net/http"

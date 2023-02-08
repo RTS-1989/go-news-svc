@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"GoNews/pkg/pb"
+	"github.com/RTS-1989/go-news-svc/pkg/pb/gonews"
 	"time"
 )
 
@@ -19,8 +19,8 @@ func NewSession(start time.Time, duration uint8, newCount int64) *PaginationSess
 	}
 }
 
-func NewsPaginationInfo(pages, currentPage, PostsOnPage int32) *pb.Pagination {
-	return &pb.Pagination{
+func NewsPaginationInfo(pages, currentPage, PostsOnPage int32) *gonews.Pagination {
+	return &gonews.Pagination{
 		Pages:       pages,
 		CurrentPage: currentPage,
 		PostsOnPage: PostsOnPage,
@@ -29,10 +29,10 @@ func NewsPaginationInfo(pages, currentPage, PostsOnPage int32) *pb.Pagination {
 
 type NewsPagination struct {
 	Session *PaginationSession
-	Values  []*pb.Post
+	Values  []*gonews.Post
 }
 
-func NewPagination(session *PaginationSession, values []*pb.Post) *NewsPagination {
+func NewPagination(session *PaginationSession, values []*gonews.Post) *NewsPagination {
 	return &NewsPagination{
 		Session: session,
 		Values:  values,
@@ -51,7 +51,7 @@ func NewPaginationCache() *PaginationCache {
 	}
 }
 
-func (pc *PaginationCache) AddSession(session *PaginationSession, posts []*pb.Post, userId int64) {
+func (pc *PaginationCache) AddSession(session *PaginationSession, posts []*gonews.Post, userId int64) {
 	p := NewPagination(session, posts)
 	pc.Sessions[userId] = p
 }
