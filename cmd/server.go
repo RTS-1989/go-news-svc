@@ -8,7 +8,6 @@ import (
 	"github.com/RTS-1989/go-news-svc/pkg/config"
 	"github.com/RTS-1989/go-news-svc/pkg/middleware"
 	"github.com/RTS-1989/go-news-svc/pkg/pb/gonews"
-
 	"github.com/RTS-1989/go-news-svc/pkg/rss"
 	"github.com/RTS-1989/go-news-svc/pkg/services"
 	"github.com/RTS-1989/go-news-svc/pkg/storage"

@@ -1,7 +1,7 @@
 package rss
 
 import (
-	"GoNews/pkg/storage"
+	"github.com/RTS-1989/go-news-svc/pkg/storage"
 	"log"
 	"reflect"
 	"testing"
