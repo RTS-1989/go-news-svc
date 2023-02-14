@@ -16,6 +16,7 @@ WORKDIR /GoNewsSvc
 
 COPY --from=builder /GoNewsSvc/main /GoNewsSvc/main
 COPY --from=builder /GoNewsSvc/pkg/config/envs/*.env /GoNewsSvc/
+COPY --from=builder /GoNewsSvc/config.json /GoNewsSvc/
 
 RUN chmod +x /GoNewsSvc/main
 
